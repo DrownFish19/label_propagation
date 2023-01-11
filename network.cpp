@@ -22,6 +22,9 @@ bool Network::initialize(string inputPath) {
             ss >> v1;
             ss >> v2;
 
+            v1++;
+            v2++;
+
             int value = (v2 > v1 ? v2 : v1);
 
             if (value > numberOfNodes)
@@ -50,6 +53,9 @@ bool Network::initialize(string inputPath) {
             ss >> v1;
             ss >> v2;
 
+            v1++;
+            v2++;
+
             // indirected graph; having edge in both direction
             edges->set(v1, v2, 1);
             edges->set(v2, v1, 1);
@@ -68,6 +74,7 @@ bool Network::initialize(string inputPath) {
         cerr << e.what() << endl;
     }
 
+    return true;
 
 }
 
@@ -144,5 +151,6 @@ bool Network::writeResultsToFile(string resultPath) {
     catch (exception ex) {
         cerr << ex.what() << endl;
     }
+    return true;
 
 }
